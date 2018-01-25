@@ -5,11 +5,19 @@
       <field name="type">tree</field>
       <field name="name">hello_summary_view_tree</field>
     </record>
+    
+    <record model="ir.ui.view" id="hello_summary_view_graph">
+      <field name="model">hello.summary_view</field>
+      <field name="type">graph</field>
+      <field name="name">hello_summary_view_graph</field>
+    </record>
+    
     <record model="ir.action.act_window" id="act_hello_summary_view">
       <field name="name">Hello Summary</field>
       <field name="res_model">hello.summary_view</field>
     </record>
 
+    
     <record model="ir.action.act_window.view"
 	    id="act_hello_summary_view_tree">
       <field name="sequence" eval="10"/>
@@ -17,6 +25,14 @@
       <field name="act_window" ref="act_hello_summary_view"/>
     </record>
     
+    <record model="ir.action.act_window.view"
+	    id="act_hello_summary_view_graph">
+      <field name="sequence" eval="5"/>
+      <field name="view" ref="hello_summary_view_graph"/>
+      <field name="act_window" ref="act_hello_summary_view"/>
+    </record>
+
+
     <menuitem id="menu_hello_summary_view" sequence="1"
 	      parent="hello.menu_hello"
 	      icon="tryton-list" action="act_hello_summary_view"/>

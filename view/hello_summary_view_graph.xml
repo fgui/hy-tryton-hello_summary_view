@@ -1,0 +1,8 @@
+<graph string="" type="vbar">
+  <x>
+    <field name="title"/>
+  </x>
+  <y>
+    <field name="num"/>
+  </y>
+</graph>
