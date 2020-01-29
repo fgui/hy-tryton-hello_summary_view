@@ -1,4 +1,4 @@
-<tree string="Hello">
+<tree>
      <field name="title"/>
      <field name="num"/>
 </tree>

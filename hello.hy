@@ -5,15 +5,11 @@
         [sql.conditionals [*]]
         [sql.functions [CurrentTimestamp]])
 
-
-(def --all-- ["HelloSummaryview"])
-
 (defclass  HelloSummaryView [ModelSQL ModelView]
   "Hello Summary"
   [--name-- "hello.summary_view"
    title (.Many2One fields "hello.title" "Title")
-   num (.Integer fields "Count")
-   ]
+   num (.Integer fields "Count")]
 
   (with-decorator classmethod
     (defn table_query [cls]
@@ -26,11 +22,8 @@
                            (.as_ (Literal 0) "create_uid")
                            (.as_ (CurrentTimestamp) "create_date")
                            (.as_ (Literal None) "write_uid")
-                           (.as_ (Literal None) "write_date")
-                           )
-            query.group-by table-hello.title
-            )
+                           (.as_ (Literal None) "write_date"))
+            query.group-by table-hello.title)
       query
       ;;(.table_query (super Hello cls))
-      ))
-  )
+      )))
